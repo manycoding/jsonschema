@@ -191,7 +191,7 @@ def exclusiveMaximum_draft6(validator, maximum, instance, schema):
         )
 
 
-def minimum_draft6(validator, minimum, instance, schema):
+def minimum(validator, minimum, instance, schema):
     if not validator.is_type(instance, "number"):
         return
 
@@ -201,7 +201,7 @@ def minimum_draft6(validator, minimum, instance, schema):
         )
 
 
-def maximum_draft6(validator, maximum, instance, schema):
+def maximum(validator, maximum, instance, schema):
     if not validator.is_type(instance, "number"):
         return
 
@@ -434,7 +434,7 @@ def allOf_draft4(validator, allOf, instance, schema):
             yield error
 
 
-def allOf_draft6(validator, allOf, instance, schema):
+def allOf(validator, allOf, instance, schema):
     for index, subschema in enumerate(allOf):
         if subschema is True:  # FIXME: Messages
             subschema = {}
@@ -482,7 +482,7 @@ def anyOf_draft4(validator, anyOf, instance, schema):
         )
 
 
-def anyOf_draft6(validator, anyOf, instance, schema):
+def anyOf(validator, anyOf, instance, schema):
     all_errors = []
     for index, subschema in enumerate(anyOf):
         if subschema is True:  # FIXME: Messages
@@ -500,7 +500,7 @@ def anyOf_draft6(validator, anyOf, instance, schema):
         )
 
 
-def oneOf_draft6(validator, oneOf, instance, schema):
+def oneOf(validator, oneOf, instance, schema):
     subschemas = enumerate(oneOf)
     all_errors = []
     for index, subschema in subschemas:
